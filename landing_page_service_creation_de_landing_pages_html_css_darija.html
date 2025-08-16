@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تصميم صفحات هبوط احترافية | Landing Pages كتبيع</title>
+  <meta name="description" content="خدمة احترافية لتصميم صفحات هبوط كتقنع وتبيع | سرعة، جمالية، وتحسين التحويلات. اطلب عرض مجاني اليوم." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --bg-soft:#0b1229;     /* deep blend */
+      --card:#111827;        /* gray-900 */
+      --muted:#9ca3af;       /* gray-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#22c55e;       /* green-500 */
+      --brand-2:#06b6d4;     /* cyan-500 */
+      --accent:#f59e0b;      /* amber-500 */
+      --danger:#ef4444;      /* red-500 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(34,197,94,.10), transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, rgba(6,182,212,.10), transparent 60%),
+                  linear-gradient(180deg, var(--bg), #0b132a 60%);
+      color:var(--text); line-height:1.65;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1200px; padding:0 20px; margin:0 auto}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:14px 20px; border-radius:999px; font-weight:700; letter-spacing:.2px; box-shadow:var(--shadow); transition:.2s ease; border:1px solid rgba(255,255,255,.08)}
+    .btn:hover{transform:translateY(-1px); opacity:.95}
+    .btn-primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#04130a}
+    .btn-ghost{background:rgba(255,255,255,.05)}
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background:linear-gradient(180deg, rgba(3,7,18,.75), rgba(3,7,18,.35)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; height:70px}
+    .brand{display:flex; align-items:center; gap:.8rem; font-weight:900; letter-spacing:.4px}
+    .logo{width:36px; height:36px; border-radius:10px; background:conic-gradient(from 220deg, var(--brand), var(--brand-2), var(--accent)); box-shadow:0 6px 16px rgba(34,197,94,.35)}
+    .nav-links{display:flex; gap:1rem; align-items:center}
+    .nav-links a{padding:10px 14px; border-radius:999px; font-weight:600; color:#cbd5e1}
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+    .menu-btn{display:none}
+
+    /* HERO */
+    .hero{padding:90px 0 40px}
+    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:40px; align-items:center}
+    .eyebrow{display:inline-flex; gap:.5rem; align-items:center; padding:8px 12px; border-radius:999px; font-weight:700; background:rgba(34,197,94,.10); border:1px solid rgba(34,197,94,.25); color:#86efac}
+    h1{font-size:clamp(28px, 4vw, 56px); line-height:1.1; margin:14px 0 10px}
+    .lead{font-size:clamp(15px, 1.8vw, 18px); color:#cbd5e1}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); padding:22px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    .hero-highlights{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
+    .chip{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); padding:10px 12px; border-radius:12px; font-weight:700; color:#e2e8f0; text-align:center}
+
+    /* SECTIONS */
+    section{padding:70px 0}
+    .section-title{font-size:clamp(22px, 3vw, 34px); margin:0 0 12px}
+    .section-sub{color:#9fb2c8; margin:0 0 28px}
+    .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    /* Portfolio */
+    .grid-portfolio{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .shot{position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+    .shot::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35));}
+    .shot > div{aspect-ratio: 16/10; background:radial-gradient(600px 300px at 80% -10%, rgba(245,158,11,.15), transparent 60%), linear-gradient(135deg, #0b132a 20%, #0f172a)}
+    .tag{position:absolute; bottom:10px; right:10px; background:rgba(255,255,255,.12); backdrop-filter:blur(6px); padding:6px 10px; border-radius:999px; font-weight:700}
+
+    /* Steps */
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+    .step{position:relative; padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
+    .step .num{position:absolute; top:-12px; left:-12px; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-weight:900; background:linear-gradient(45deg, var(--brand), var(--brand-2)); color:#04130a; box-shadow:var(--shadow)}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .price{border:1px solid rgba(255,255,255,.1); border-radius:18px; overflow:hidden; background:linear-gradient(180deg, rgba(6,182,212,.08), rgba(255,255,255,.02))}
+    .price .head{padding:20px; border-bottom:1px solid rgba(255,255,255,.06)}
+    .price .body{padding:20px}
+    .price .amt{font-size:34px; font-weight:900}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(34,197,94,.15); border:1px solid rgba(34,197,94,.3); color:#86efac; font-weight:800}
+    ul{list-style:none; padding:0; margin:0}
+    ul li{display:flex; gap:.6rem; align-items:flex-start; padding:8px 0}
+    .tick{margin-top:3px; width:18px; height:18px; border-radius:4px; display:grid; place-items:center; background:rgba(34,197,94,.15); border:1px solid rgba(34,197,94,.3)}
+
+    /* Testimonials */
+    .testis{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .quote{padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
+    .quote footer{margin-top:12px; display:flex; align-items:center; justify-content:space-between; color:#94a3b8}
+
+    /* FAQ */
+    .faq{max-width:900px; margin:0 auto}
+    .faq-item{border:1px solid rgba(255,255,255,.08); border-radius:16px; margin-bottom:12px; overflow:hidden}
+    .faq-q{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:16px 18px; background:rgba(255,255,255,.04); cursor:pointer}
+    .faq-a{display:none; padding:16px 18px; color:#cbd5e1; background:rgba(255,255,255,.02)}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns: 1fr 1fr; gap:20px}
+    .form{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px}
+    .form label{display:block; margin:10px 0 6px; color:#9fb2c8; font-weight:700}
+    .form input, .form textarea, .form select{
+      width:100%; padding:12px 14px; border-radius:12px; background:#0b132a; border:1px solid rgba(255,255,255,.12); color:var(--text);
+    }
+    .form textarea{min-height:120px; resize:vertical}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06); padding:30px 0 50px; color:#93a5bf}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards, .grid-portfolio, .steps, .pricing, .testis, .contact{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>Landing Forge</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">المميزات</a>
+        <a href="#portfolio">الأعمال</a>
+        <a href="#process">طريقة الخدمة</a>
+        <a href="#pricing">العروض</a>
+        <a href="#contact" class="btn btn-ghost">تواصل</a>
+        <a class="btn btn-primary" href="https://wa.me/212XXXXXXXXX?text=بغيت%20عرض%20لصفحة%20هبوط" target="_blank" rel="noopener">تواصل واتساب</a>
+      </nav>
+      <button class="menu-btn btn btn-ghost" id="openMenu" aria-label="القائمة">القائمة</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">صفحة هبوط كتقنع وكتبيع 🚀</div>
+        <h1>كنصمّمو Landing Pages احترافية <span style="background:linear-gradient(90deg,var(--accent),#fff); -webkit-background-clip:text; background-clip:text; color:transparent">كتكبر المبيعات</span></h1>
+        <p class="lead">خاصك صفحة هبوط للسوق المغربي/الخليجي؟ كنحضّرو ليك تصميم سريع، واضح، ومتوافق مع الهواتف مع نصوص إقناعية، باش تحويلاتك تطلع.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px">
+          <a class="btn btn-primary" href="#contact">اطلب عرض مجاني الآن</a>
+          <a class="btn btn-ghost" href="#portfolio">شوف أعمالنا</a>
+        </div>
+        <div class="hero-highlights">
+          <div class="chip">+950 صفحة ناجحة</div>
+          <div class="chip">تسليم سريع</div>
+          <div class="chip">تحسين التحويل</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop" alt="Landing page preview" style="border-radius:14px; border:1px solid rgba(255,255,255,.08)">
+        <div style="display:flex; gap:10px; margin-top:12px">
+          <span class="badge">Responsive</span>
+          <span class="badge" style="background:rgba(6,182,212,.15); border-color:rgba(6,182,212,.35); color:#99f6e4">Copywriting</span>
+          <span class="badge" style="background:rgba(245,158,11,.15); border-color:rgba(245,158,11,.35); color:#fde68a">Speed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">علاش تختار الخدمة ديالنا؟</h2>
+      <p class="section-sub">تصميم + كتابة إعلانية + تركيز على التحويلات = نتائج حقيقية.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>تصميم جمالي وسريع</h3>
+          <p class="muted">كود نظيف HTML/CSS، صور مضغوطة، وقياسات محسّنة باش الصفحة تحمّل فالثواني.</p>
+        </div>
+        <div class="card">
+          <h3>نصوص كتقنع (Copy)</h3>
+          <p class="muted">كتابة دارجة/فصحى/فرنسية حسب السوق، مع CTA واضح كيحوّل الزائر لزبون.</p>
+        </div>
+        <div class="card">
+          <h3>متوافقة مع الهواتف</h3>
+          <p class="muted">Responsive 100% لجميع الشاشات مع اختبار تجربة المستخدم UX.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">عينات من الأعمال</h2>
+      <p class="section-sub">Screenshots توضيحية. يمكن نرسل ليك Portfolio كامل فالواتساب.</p>
+      <div class="grid-portfolio">
+        <div class="shot"><div></div><span class="tag">E‑commerce</span></div>
+        <div class="shot"><div></div><span class="tag">SaaS</span></div>
+        <div class="shot"><div></div><span class="tag">خدمات محلية</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">كيفاش خدامين؟</h2>
+      <p class="section-sub">مسار واضح وبسيط من أول تواصل حتى الإطلاق.</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>فهم المشروع</h3><p class="muted">كنجمعو المعلومات على المنتج والجمهور والهدف.</p></div>
+        <div class="step"><div class="num">2</div><h3>الهيكلة + النصوص</h3><p class="muted">Wireframe وCopy مؤثر بالدارجة/الفصحى.</p></div>
+        <div class="step"><div class="num">3</div><h3>التصميم والتطوير</h3><p class="muted">HTML/CSS نظيف + تحسين السرعة.</p></div>
+        <div class="step"><div class="num">4</div><h3>الإطلاق والاختبار</h3><p class="muted">ربط فورم/واتساب، اختبار A/B، وتتبع النتائج.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">العروض المناسبة ليك</h2>
+      <p class="section-sub">أثمنة مرنة على حسب حاجتك. جميع العروض فيها ضمان تعديلات.</p>
+      <div class="pricing">
+        <div class="price">
+          <div class="head"><span class="badge">Starter</span></div>
+          <div class="body">
+            <div class="amt">ابتداءً من 999 DH</div>
+            <ul>
+              <li><span class="tick">✓</span> صفحة واحدة سريعة</li>
+              <li><span class="tick">✓</span> تصميم Responsive</li>
+              <li><span class="tick">✓</span> ربط واتساب/فورم</li>
+            </ul>
+            <div style="margin-top:12px; display:flex; gap:10px">
+              <a class="btn btn-primary" href="#contact">اطلب الآن</a>
+            </div>
+          </div>
+        </div>
+        <div class="price" style="transform:scale(1.02); border-color:rgba(34,197,94,.35)">
+          <div class="head"><span class="badge">Business ✅ الأكثر طلباً</span></div>
+          <div class="body">
+            <div class="amt">ابتداءً من 1999 DH</div>
+            <ul>
+              <li><span class="tick">✓</span> صفحة هبوط متقدمة</li>
+              <li><span class="tick">✓</span> كتابة إعلانية احترافية</li>
+              <li><span class="tick">✓</span> تتبع تحويلات + A/B</li>
+            </ul>
+            <div style="margin-top:12px; display:flex; gap:10px">
+              <a class="btn btn-primary" href="#contact">احجز عرض</a>
+            </div>
+          </div>
+        </div>
+        <div class="price">
+          <div class="head"><span class="badge">Scale</span></div>
+          <div class="body">
+            <div class="amt">سعر مخصص</div>
+            <ul>
+              <li><span class="tick">✓</span> حملات متعددة</li>
+              <li><span class="tick">✓</span> تكاملات API/Sheets</li>
+              <li><span class="tick">✓</span> دعم شهري</li>
+            </ul>
+            <div style="margin-top:12px; display:flex; gap:10px">
+              <a class="btn btn-primary" href="#contact">تكلم معنا</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title">ماذا قالو العملاء؟</h2>
+      <p class="section-sub">آراء مختصرة من زبناء خدمنا معاهم.</p>
+      <div class="testis">
+        <div class="quote">
+          <p>"الصفحة رفعات ليا ال‑CTR ووصلاتني طلبيات أكثر ب 40%"</p>
+          <footer><span>أمين • E‑commerce</span><span>⭐⭐⭐⭐⭐</span></footer>
+        </div>
+        <div class="quote">
+          <p>"تسليم سريع ونصوص بالدارجة مفهومة وكتبيع. أنصح بهم"</p>
+          <footer><span>نسرين • خدمات</span><span>⭐⭐⭐⭐⭐</span></footer>
+        </div>
+        <div class="quote">
+          <p>"ربطو ليا الفورم مع Google Sheets وبقات الخدمة طيّارة"</p>
+          <footer><span>ياسين • SaaS</span><span>⭐⭐⭐⭐⭐</span></footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container faq">
+      <h2 class="section-title">أسئلة متكررة</h2>
+      <div class="faq-item">
+        <div class="faq-q"><strong>شحال كتاخذ الخدمة من الوقت؟</strong><span>＋</span></div>
+        <div class="faq-a">عادة من 2 حتى 5 أيام على حسب الباكيج والتعديلات المطلوبة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>كتخدمو بالدارجة/الفصحى/الفرنسية؟</strong><span>＋</span></div>
+        <div class="faq-a">إييه، على حسب السوق المستهدف. كنقترحو الصيغة الأفضل للتحويل.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><strong>واش كتوفرو الاستضافة والدومين؟</strong><span>＋</span></div>
+        <div class="faq-a">نقدرونعاونوك فالاختيار والربط، وخدمتنا مركزة على التصميم والتطوير.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">باغي صفحة كتبيع؟ هضر معنا 👇</h2>
+      <div class="contact">
+        <form class="form" onsubmit="event.preventDefault(); alert('شكراً! غنتواصلو معاك فأقرب وقت.');">
+          <label>الاسم الكامل</label>
+          <input type="text" placeholder="مثال: محمد رضا" required>
+          <label>رقم الهاتف</label>
+          <input type="tel" placeholder="مثال: +212 6X XX XX XX" required>
+          <label>مجال النشاط</label>
+          <select>
+            <option>إي‑كوميرس</option>
+            <option>خدمات محلية</option>
+            <option>SaaS / تكنولوجيا</option>
+            <option>أخرى</option>
+          </select>
+          <label>أخبرنا باختصار على المشروع</label>
+          <textarea placeholder="شنو كتبيع؟ فين الجمهور؟ الهدف من الصفحة؟"></textarea>
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">إرسال الطلب</button>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/212XXXXXXXXX?text=سلام،%20بغيت%20Landing%20Page">تواصل واتساب</a>
+          </div>
+        </form>
+        <div class="form">
+          <h3 style="margin-top:0">ماذا ستحصل بالضبط؟</h3>
+          <ul>
+            <li><span class="tick">✓</span> ملف HTML/CSS نظيف ومهيكل</li>
+            <li><span class="tick">✓</span> نصوص إقناعية موجهة للجمهور</li>
+            <li><span class="tick">✓</span> صور وأيقونات مرخّصة/مجانية</li>
+            <li><span class="tick">✓</span> ربط فورم/واتساب أو Google Sheets</li>
+            <li><span class="tick">✓</span> تعديل مجاني أولي بعد التسليم</li>
+          </ul>
+          <div style="margin-top:16px">
+            <div class="eyebrow" style="background:rgba(245,158,11,.1); border-color:rgba(245,158,11,.35); color:#fde68a">ملاحظة</div>
+            <p class="muted">بدّل <strong>212XXXXXXXXX</strong> برقم الواتساب ديالك فالأزرار باش توصلك الرسائل مباشرة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
+      <div class="brand"><div class="logo"></div><span>Landing Forge</span></div>
+      <div>© <span id="year"></span> كل الحقوق محفوظة • صفحات كتقنع وكتبيع</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (very simple)
+    const openBtn = document.getElementById('openMenu');
+    openBtn?.addEventListener('click', () => {
+      const nav = document.querySelector('.nav-links');
+      if(!nav) return;
+      const isOpen = getComputedStyle(nav).display !== 'none';
+      nav.style.display = isOpen ? 'none' : 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.alignItems = 'stretch';
+      nav.style.gap = '6px';
+    });
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const a = q.parentElement.querySelector('.faq-a');
+        const open = a.style.display === 'block';
+        a.style.display = open ? 'none' : 'block';
+        q.querySelector('span').textContent = open ? '＋' : '－';
+      });
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
